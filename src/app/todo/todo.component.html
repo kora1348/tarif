@@ -1,0 +1,35 @@
+<div class="container text-center">
+    <h2 class="pt-3 pb-3">HTML Table</h2>
+
+    <table class="mb-5">
+        <tr>
+            <th>Tarif 1</th>
+            <th>Tarif 2 </th>
+            <th>SVM </th>
+
+        </tr>
+        <ng-container *ngFor="let plnPlcInfo of tarificationTitre">
+           
+            <ng-container *ngFor="let svmInfo of plnPlcInfo.PLN_SVM">
+                <tr class="text-center">
+                   
+                    <td>
+                        <ng-container *ngIf="svmInfo.PLN[0].CODE === 'NEK01'">
+                          {{ svmInfo.PLN[0].PLAGE[0].FRAIS_ETRANGERS }} % 
+                        </ng-container>
+                      </td>
+                      <td>
+                        <ng-container *ngIf="svmInfo.PLN[0].CODE === 'NEK03'">
+                          {{ svmInfo.PLN[0].PLAGE[0].FRAIS_ETRANGERS }}
+                        </ng-container>
+                      </td>
+
+                    
+                   
+                    <td scope="col">{{ svmInfo.SVM }}</td>
+
+                </tr>
+            </ng-container>
+        </ng-container>
+    </table>
+</div>
